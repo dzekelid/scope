@@ -3,9 +3,10 @@ swagger: "2.0"
 x-collection-name: Box
 x-complete: 0
 info:
-  title: Box Delete Metadata on File
-  description: Used to delete the template instance. To delete custom key:value pairs
-    within a template instance, you should refer to the updating metadata section.
+  title: Box Create Metadata on Folder
+  description: Used to create the metadata template instance for a corresponding Box
+    folder. When creating metadata, only values that adhere to the metadata template
+    schema will be accepted.
   version: 1.0.0
 host: api.box.com
 basePath: /2.0
@@ -183,6 +184,36 @@ paths:
       - Documents
       - Files
       - File
+      - ""
+      - Metadata
+      - Scope
+      - Template
+  /folders/{FOLDER_ID}/metadata/{SCOPE}/{TEMPLATE}:
+    post:
+      summary: Create Metadata on Folder
+      description: Used to create the metadata template instance for a corresponding
+        Box folder. When creating metadata, only values that adhere to the metadata
+        template schema will be accepted.
+      operationId: createFolderMetadata
+      x-api-path-slug: foldersfolder-idmetadatascopetemplate-post
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/holder'
+      - in: path
+        name: FOLDER_ID
+      - in: path
+        name: SCOPE
+      - in: path
+        name: TEMPLATE
+      responses:
+        200:
+          description: OK
+      tags:
+      - Documents
+      - Folders
+      - Folder
       - ""
       - Metadata
       - Scope

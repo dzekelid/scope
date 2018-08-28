@@ -3,9 +3,10 @@ swagger: "2.0"
 x-collection-name: Box
 x-complete: 0
 info:
-  title: Box Delete Metadata on File
-  description: Used to delete the template instance. To delete custom key:value pairs
-    within a template instance, you should refer to the updating metadata section.
+  title: Box Create Metadata on File
+  description: Used to create the metadata template instance for a corresponding Box
+    file. When creating metadata, only values that adhere to the metadata template
+    schema will be accepted.
   version: 1.0.0
 host: api.box.com
 basePath: /2.0
@@ -92,84 +93,6 @@ paths:
         name: body
         schema:
           $ref: '#/definitions/holder'
-      - in: path
-        name: FILE_ID
-      - in: path
-        name: SCOPE
-      - in: path
-        name: TEMPLATE
-      responses:
-        200:
-          description: OK
-      tags:
-      - Documents
-      - Files
-      - File
-      - ""
-      - Metadata
-      - Scope
-      - Template
-    get:
-      summary: Get Metadata on File
-      description: Used to retrieve the metadata template instance for a corresponding
-        Box file.
-      operationId: getFileMetadata
-      x-api-path-slug: filesfile-idmetadatascopetemplate-get
-      parameters:
-      - in: path
-        name: FILE_ID
-      - in: path
-        name: SCOPE
-      - in: path
-        name: TEMPLATE
-      responses:
-        200:
-          description: OK
-      tags:
-      - Documents
-      - Files
-      - File
-      - ""
-      - Metadata
-      - Scope
-      - Template
-    put:
-      summary: Update Metadata on File
-      description: |-
-        Used to update the template instance. The request body must follow the JSON-Patch specification, which is represented as a JSON array of operation objects (see examples for more details). Updates can be either add, replace, remove , test, move, or copy. The template instance can only be updated if the template instance already exists. When editing metadata, only values that adhere to the metadata template schema will be accepted.
-        The update is applied atomically. If any errors occur during the application of the update operations, the metadata instance remains unchanged.
-      operationId: updateFileMetadata
-      x-api-path-slug: filesfile-idmetadatascopetemplate-put
-      parameters:
-      - in: body
-        name: body
-        schema:
-          $ref: '#/definitions/holder'
-      - in: path
-        name: FILE_ID
-      - in: path
-        name: SCOPE
-      - in: path
-        name: TEMPLATE
-      responses:
-        200:
-          description: OK
-      tags:
-      - Documents
-      - Files
-      - File
-      - ""
-      - Metadata
-      - Scope
-      - Template
-    delete:
-      summary: Delete Metadata on File
-      description: Used to delete the template instance. To delete custom key:value
-        pairs within a template instance, you should refer to the updating metadata
-        section.
-      operationId: deleteFileMetadata
-      x-api-path-slug: filesfile-idmetadatascopetemplate-delete
-      parameters:
       - in: path
         name: FILE_ID
       - in: path

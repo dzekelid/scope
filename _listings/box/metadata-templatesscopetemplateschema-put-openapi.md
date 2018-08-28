@@ -3,9 +3,8 @@ swagger: "2.0"
 x-collection-name: Box
 x-complete: 0
 info:
-  title: Box Get Metadata on File
-  description: Used to retrieve the metadata template instance for a corresponding
-    Box file.
+  title: Box Update Metadata Template
+  description: Used to update the schema of an existing template.
   version: 1.0.0
 host: api.box.com
 basePath: /2.0
@@ -79,60 +78,6 @@ paths:
       - Scope
       - Template
       - Schema
-  /files/{FILE_ID}/metadata/{SCOPE}/{TEMPLATE}:
-    post:
-      summary: Create Metadata on File
-      description: Used to create the metadata template instance for a corresponding
-        Box file. When creating metadata, only values that adhere to the metadata
-        template schema will be accepted.
-      operationId: createFileMetadata
-      x-api-path-slug: filesfile-idmetadatascopetemplate-post
-      parameters:
-      - in: body
-        name: body
-        schema:
-          $ref: '#/definitions/holder'
-      - in: path
-        name: FILE_ID
-      - in: path
-        name: SCOPE
-      - in: path
-        name: TEMPLATE
-      responses:
-        200:
-          description: OK
-      tags:
-      - Documents
-      - Files
-      - File
-      - ""
-      - Metadata
-      - Scope
-      - Template
-    get:
-      summary: Get Metadata on File
-      description: Used to retrieve the metadata template instance for a corresponding
-        Box file.
-      operationId: getFileMetadata
-      x-api-path-slug: filesfile-idmetadatascopetemplate-get
-      parameters:
-      - in: path
-        name: FILE_ID
-      - in: path
-        name: SCOPE
-      - in: path
-        name: TEMPLATE
-      responses:
-        200:
-          description: OK
-      tags:
-      - Documents
-      - Files
-      - File
-      - ""
-      - Metadata
-      - Scope
-      - Template
 x-streamrank:
   polling_total_time_average: 0
   polling_size_download_average: 0
